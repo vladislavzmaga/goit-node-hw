@@ -31,6 +31,7 @@ async function removeContact(contactId) {
       (item) => contactId.toString() !== item.id
     );
     console.table(currentUsers);
+    await fs.writeFile(contactsPath, JSON.stringify(currentUsers), "utf8");
   } catch (error) {
     console.log(error);
   }
